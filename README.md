@@ -130,7 +130,3 @@ statement
           value
             5
 ```
-
-## Wkład
-
-Jeśli chcesz wnieść wkład do tego projektu, prosimy o przesyłanie pull requestów z propozycjami zmian lub rozszerzeń.
