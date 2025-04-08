@@ -1,4 +1,4 @@
-# Generated from PostgreSQL.g4 by ANTLR 4.13.0
+# Generated from PostgreSQL.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .PostgreSQLParser import PostgreSQLParser
@@ -188,21 +188,12 @@ class PostgreSQLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PostgreSQLParser#windowFunction.
-    def enterWindowFunction(self, ctx:PostgreSQLParser.WindowFunctionContext):
+    # Enter a parse tree produced by PostgreSQLParser#semicolon.
+    def enterSemicolon(self, ctx:PostgreSQLParser.SemicolonContext):
         pass
 
-    # Exit a parse tree produced by PostgreSQLParser#windowFunction.
-    def exitWindowFunction(self, ctx:PostgreSQLParser.WindowFunctionContext):
-        pass
-
-
-    # Enter a parse tree produced by PostgreSQLParser#partitionByClause.
-    def enterPartitionByClause(self, ctx:PostgreSQLParser.PartitionByClauseContext):
-        pass
-
-    # Exit a parse tree produced by PostgreSQLParser#partitionByClause.
-    def exitPartitionByClause(self, ctx:PostgreSQLParser.PartitionByClauseContext):
+    # Exit a parse tree produced by PostgreSQLParser#semicolon.
+    def exitSemicolon(self, ctx:PostgreSQLParser.SemicolonContext):
         pass
 
 

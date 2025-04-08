@@ -1,12 +1,11 @@
 grammar PostgreSQL;
 
-
 statement: selectStatement | insertStatement | updateStatement | deleteStatement;
 
-selectStatement: 'SELECT' columnList 'FROM' tableList whereClause? groupByClause? havingClause? orderByClause?;
-insertStatement: 'INSERT' 'INTO' tableName '(' columnList ')' 'VALUES' '(' valueList ')';
-updateStatement: 'UPDATE' tableName 'SET' assignmentList whereClause?;
-deleteStatement: 'DELETE' 'FROM' tableName whereClause?;
+selectStatement: 'SELECT' columnList 'FROM' tableList whereClause? groupByClause? havingClause? orderByClause? semicolon;
+insertStatement: 'INSERT' 'INTO' tableName '(' columnList ')' 'VALUES' '(' valueList ')' semicolon;
+updateStatement: 'UPDATE' tableName 'SET' assignmentList whereClause? semicolon;
+deleteStatement: 'DELETE' 'FROM' tableName whereClause? semicolon;
 
 whereClause: 'WHERE' condition;
 groupByClause: 'GROUP BY' columnList;
@@ -14,7 +13,7 @@ havingClause: 'HAVING' condition;
 orderByClause: 'ORDER BY' columnList;
 
 columnList: column (',' column)*;
-column: columnName | aggregateFunction | windowFunction;
+column: columnName | aggregateFunction;
 valueList: value (',' value)*;
 assignmentList: assignment (',' assignment)*;
 assignment: columnName '=' value;
@@ -26,9 +25,8 @@ joinClause: joinType 'JOIN' tableName 'ON' condition;
 joinType: 'INNER' | 'LEFT' | 'RIGHT' | 'FULL' | 'CROSS';
 
 aggregateFunction: ('COUNT' | 'SUM' | 'AVG' | 'MIN' | 'MAX') '(' columnName ')';
-windowFunction: ('ROW_NUMBER' | 'RANK' | 'DENSE_RANK' | 'NTILE' | 'LEAD' | 'LAG') '(' ')' 'OVER' '(' partitionByClause? orderByClause? ')';
-partitionByClause: 'PARTITION BY' columnList;
 
+semicolon: ';';
 
 tableName: IDENTIFIER;
 columnName: IDENTIFIER ('.' IDENTIFIER)?;

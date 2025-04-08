@@ -1,4 +1,4 @@
-# Generated from PostgreSQL.g4 by ANTLR 4.13.0
+# Generated from PostgreSQL.g4 by ANTLR 4.13.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -10,71 +10,67 @@ else:
 
 def serializedATN():
     return [
-        4,1,46,200,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,39,190,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
-        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,1,0,1,0,1,
-        0,1,0,3,0,57,8,0,1,1,1,1,1,1,1,1,1,1,3,1,64,8,1,1,1,3,1,67,8,1,1,
-        1,3,1,70,8,1,1,1,3,1,73,8,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
-        1,2,1,2,1,3,1,3,1,3,1,3,1,3,3,3,91,8,3,1,4,1,4,1,4,1,4,3,4,97,8,
-        4,1,5,1,5,1,5,1,6,1,6,1,6,1,7,1,7,1,7,1,8,1,8,1,8,1,9,1,9,1,9,5,
-        9,114,8,9,10,9,12,9,117,9,9,1,10,1,10,1,10,3,10,122,8,10,1,11,1,
-        11,1,11,5,11,127,8,11,10,11,12,11,130,9,11,1,12,1,12,1,12,5,12,135,
-        8,12,10,12,12,12,138,9,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,1,14,
-        1,15,1,15,1,15,3,15,151,8,15,1,16,1,16,5,16,155,8,16,10,16,12,16,
-        158,9,16,1,17,1,17,1,17,1,17,1,17,1,17,1,18,1,18,1,19,1,19,1,19,
-        1,19,1,19,1,20,1,20,1,20,1,20,1,20,1,20,3,20,179,8,20,1,20,3,20,
-        182,8,20,1,20,1,20,1,21,1,21,1,21,1,22,1,22,1,23,1,23,1,23,3,23,
-        194,8,23,1,24,1,24,1,25,1,25,1,25,0,0,26,0,2,4,6,8,10,12,14,16,18,
-        20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,0,5,1,0,19,23,1,
-        0,24,28,1,0,29,34,1,0,44,45,2,0,16,16,38,42,193,0,56,1,0,0,0,2,58,
-        1,0,0,0,4,74,1,0,0,0,6,85,1,0,0,0,8,92,1,0,0,0,10,98,1,0,0,0,12,
-        101,1,0,0,0,14,104,1,0,0,0,16,107,1,0,0,0,18,110,1,0,0,0,20,121,
-        1,0,0,0,22,123,1,0,0,0,24,131,1,0,0,0,26,139,1,0,0,0,28,143,1,0,
-        0,0,30,150,1,0,0,0,32,152,1,0,0,0,34,159,1,0,0,0,36,165,1,0,0,0,
-        38,167,1,0,0,0,40,172,1,0,0,0,42,185,1,0,0,0,44,188,1,0,0,0,46,190,
-        1,0,0,0,48,195,1,0,0,0,50,197,1,0,0,0,52,57,3,2,1,0,53,57,3,4,2,
-        0,54,57,3,6,3,0,55,57,3,8,4,0,56,52,1,0,0,0,56,53,1,0,0,0,56,54,
-        1,0,0,0,56,55,1,0,0,0,57,1,1,0,0,0,58,59,5,1,0,0,59,60,3,18,9,0,
-        60,61,5,2,0,0,61,63,3,32,16,0,62,64,3,10,5,0,63,62,1,0,0,0,63,64,
-        1,0,0,0,64,66,1,0,0,0,65,67,3,12,6,0,66,65,1,0,0,0,66,67,1,0,0,0,
-        67,69,1,0,0,0,68,70,3,14,7,0,69,68,1,0,0,0,69,70,1,0,0,0,70,72,1,
-        0,0,0,71,73,3,16,8,0,72,71,1,0,0,0,72,73,1,0,0,0,73,3,1,0,0,0,74,
-        75,5,3,0,0,75,76,5,4,0,0,76,77,3,44,22,0,77,78,5,5,0,0,78,79,3,18,
+        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,1,0,1,0,1,0,1,0,3,0,
+        55,8,0,1,1,1,1,1,1,1,1,1,1,3,1,62,8,1,1,1,3,1,65,8,1,1,1,3,1,68,
+        8,1,1,1,3,1,71,8,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
+        2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,3,3,92,8,3,1,3,1,3,1,4,1,4,1,4,1,4,
+        3,4,100,8,4,1,4,1,4,1,5,1,5,1,5,1,6,1,6,1,6,1,7,1,7,1,7,1,8,1,8,
+        1,8,1,9,1,9,1,9,5,9,119,8,9,10,9,12,9,122,9,9,1,10,1,10,3,10,126,
+        8,10,1,11,1,11,1,11,5,11,131,8,11,10,11,12,11,134,9,11,1,12,1,12,
+        1,12,5,12,139,8,12,10,12,12,12,142,9,12,1,13,1,13,1,13,1,13,1,14,
+        1,14,1,14,1,14,1,15,1,15,1,15,3,15,155,8,15,1,16,1,16,5,16,159,8,
+        16,10,16,12,16,162,9,16,1,17,1,17,1,17,1,17,1,17,1,17,1,18,1,18,
+        1,19,1,19,1,19,1,19,1,19,1,20,1,20,1,21,1,21,1,22,1,22,1,22,3,22,
+        184,8,22,1,23,1,23,1,24,1,24,1,24,0,0,25,0,2,4,6,8,10,12,14,16,18,
+        20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,0,4,1,0,19,23,1,0,24,
+        28,1,0,37,38,2,0,16,16,31,35,181,0,54,1,0,0,0,2,56,1,0,0,0,4,74,
+        1,0,0,0,6,86,1,0,0,0,8,95,1,0,0,0,10,103,1,0,0,0,12,106,1,0,0,0,
+        14,109,1,0,0,0,16,112,1,0,0,0,18,115,1,0,0,0,20,125,1,0,0,0,22,127,
+        1,0,0,0,24,135,1,0,0,0,26,143,1,0,0,0,28,147,1,0,0,0,30,154,1,0,
+        0,0,32,156,1,0,0,0,34,163,1,0,0,0,36,169,1,0,0,0,38,171,1,0,0,0,
+        40,176,1,0,0,0,42,178,1,0,0,0,44,180,1,0,0,0,46,185,1,0,0,0,48,187,
+        1,0,0,0,50,55,3,2,1,0,51,55,3,4,2,0,52,55,3,6,3,0,53,55,3,8,4,0,
+        54,50,1,0,0,0,54,51,1,0,0,0,54,52,1,0,0,0,54,53,1,0,0,0,55,1,1,0,
+        0,0,56,57,5,1,0,0,57,58,3,18,9,0,58,59,5,2,0,0,59,61,3,32,16,0,60,
+        62,3,10,5,0,61,60,1,0,0,0,61,62,1,0,0,0,62,64,1,0,0,0,63,65,3,12,
+        6,0,64,63,1,0,0,0,64,65,1,0,0,0,65,67,1,0,0,0,66,68,3,14,7,0,67,
+        66,1,0,0,0,67,68,1,0,0,0,68,70,1,0,0,0,69,71,3,16,8,0,70,69,1,0,
+        0,0,70,71,1,0,0,0,71,72,1,0,0,0,72,73,3,40,20,0,73,3,1,0,0,0,74,
+        75,5,3,0,0,75,76,5,4,0,0,76,77,3,42,21,0,77,78,5,5,0,0,78,79,3,18,
         9,0,79,80,5,6,0,0,80,81,5,7,0,0,81,82,5,5,0,0,82,83,3,22,11,0,83,
-        84,5,6,0,0,84,5,1,0,0,0,85,86,5,8,0,0,86,87,3,44,22,0,87,88,5,9,
-        0,0,88,90,3,24,12,0,89,91,3,10,5,0,90,89,1,0,0,0,90,91,1,0,0,0,91,
-        7,1,0,0,0,92,93,5,10,0,0,93,94,5,2,0,0,94,96,3,44,22,0,95,97,3,10,
-        5,0,96,95,1,0,0,0,96,97,1,0,0,0,97,9,1,0,0,0,98,99,5,11,0,0,99,100,
-        3,28,14,0,100,11,1,0,0,0,101,102,5,12,0,0,102,103,3,18,9,0,103,13,
-        1,0,0,0,104,105,5,13,0,0,105,106,3,28,14,0,106,15,1,0,0,0,107,108,
-        5,14,0,0,108,109,3,18,9,0,109,17,1,0,0,0,110,115,3,20,10,0,111,112,
-        5,15,0,0,112,114,3,20,10,0,113,111,1,0,0,0,114,117,1,0,0,0,115,113,
-        1,0,0,0,115,116,1,0,0,0,116,19,1,0,0,0,117,115,1,0,0,0,118,122,3,
-        46,23,0,119,122,3,38,19,0,120,122,3,40,20,0,121,118,1,0,0,0,121,
-        119,1,0,0,0,121,120,1,0,0,0,122,21,1,0,0,0,123,128,3,48,24,0,124,
-        125,5,15,0,0,125,127,3,48,24,0,126,124,1,0,0,0,127,130,1,0,0,0,128,
-        126,1,0,0,0,128,129,1,0,0,0,129,23,1,0,0,0,130,128,1,0,0,0,131,136,
-        3,26,13,0,132,133,5,15,0,0,133,135,3,26,13,0,134,132,1,0,0,0,135,
-        138,1,0,0,0,136,134,1,0,0,0,136,137,1,0,0,0,137,25,1,0,0,0,138,136,
-        1,0,0,0,139,140,3,46,23,0,140,141,5,16,0,0,141,142,3,48,24,0,142,
-        27,1,0,0,0,143,144,3,30,15,0,144,145,3,50,25,0,145,146,3,30,15,0,
-        146,29,1,0,0,0,147,151,3,46,23,0,148,151,3,48,24,0,149,151,3,38,
-        19,0,150,147,1,0,0,0,150,148,1,0,0,0,150,149,1,0,0,0,151,31,1,0,
-        0,0,152,156,3,44,22,0,153,155,3,34,17,0,154,153,1,0,0,0,155,158,
-        1,0,0,0,156,154,1,0,0,0,156,157,1,0,0,0,157,33,1,0,0,0,158,156,1,
-        0,0,0,159,160,3,36,18,0,160,161,5,17,0,0,161,162,3,44,22,0,162,163,
-        5,18,0,0,163,164,3,28,14,0,164,35,1,0,0,0,165,166,7,0,0,0,166,37,
-        1,0,0,0,167,168,7,1,0,0,168,169,5,5,0,0,169,170,3,46,23,0,170,171,
-        5,6,0,0,171,39,1,0,0,0,172,173,7,2,0,0,173,174,5,5,0,0,174,175,5,
-        6,0,0,175,176,5,35,0,0,176,178,5,5,0,0,177,179,3,42,21,0,178,177,
-        1,0,0,0,178,179,1,0,0,0,179,181,1,0,0,0,180,182,3,16,8,0,181,180,
-        1,0,0,0,181,182,1,0,0,0,182,183,1,0,0,0,183,184,5,6,0,0,184,41,1,
-        0,0,0,185,186,5,36,0,0,186,187,3,18,9,0,187,43,1,0,0,0,188,189,5,
-        43,0,0,189,45,1,0,0,0,190,193,5,43,0,0,191,192,5,37,0,0,192,194,
-        5,43,0,0,193,191,1,0,0,0,193,194,1,0,0,0,194,47,1,0,0,0,195,196,
-        7,3,0,0,196,49,1,0,0,0,197,198,7,4,0,0,198,51,1,0,0,0,16,56,63,66,
-        69,72,90,96,115,121,128,136,150,156,178,181,193
+        84,5,6,0,0,84,85,3,40,20,0,85,5,1,0,0,0,86,87,5,8,0,0,87,88,3,42,
+        21,0,88,89,5,9,0,0,89,91,3,24,12,0,90,92,3,10,5,0,91,90,1,0,0,0,
+        91,92,1,0,0,0,92,93,1,0,0,0,93,94,3,40,20,0,94,7,1,0,0,0,95,96,5,
+        10,0,0,96,97,5,2,0,0,97,99,3,42,21,0,98,100,3,10,5,0,99,98,1,0,0,
+        0,99,100,1,0,0,0,100,101,1,0,0,0,101,102,3,40,20,0,102,9,1,0,0,0,
+        103,104,5,11,0,0,104,105,3,28,14,0,105,11,1,0,0,0,106,107,5,12,0,
+        0,107,108,3,18,9,0,108,13,1,0,0,0,109,110,5,13,0,0,110,111,3,28,
+        14,0,111,15,1,0,0,0,112,113,5,14,0,0,113,114,3,18,9,0,114,17,1,0,
+        0,0,115,120,3,20,10,0,116,117,5,15,0,0,117,119,3,20,10,0,118,116,
+        1,0,0,0,119,122,1,0,0,0,120,118,1,0,0,0,120,121,1,0,0,0,121,19,1,
+        0,0,0,122,120,1,0,0,0,123,126,3,44,22,0,124,126,3,38,19,0,125,123,
+        1,0,0,0,125,124,1,0,0,0,126,21,1,0,0,0,127,132,3,46,23,0,128,129,
+        5,15,0,0,129,131,3,46,23,0,130,128,1,0,0,0,131,134,1,0,0,0,132,130,
+        1,0,0,0,132,133,1,0,0,0,133,23,1,0,0,0,134,132,1,0,0,0,135,140,3,
+        26,13,0,136,137,5,15,0,0,137,139,3,26,13,0,138,136,1,0,0,0,139,142,
+        1,0,0,0,140,138,1,0,0,0,140,141,1,0,0,0,141,25,1,0,0,0,142,140,1,
+        0,0,0,143,144,3,44,22,0,144,145,5,16,0,0,145,146,3,46,23,0,146,27,
+        1,0,0,0,147,148,3,30,15,0,148,149,3,48,24,0,149,150,3,30,15,0,150,
+        29,1,0,0,0,151,155,3,44,22,0,152,155,3,46,23,0,153,155,3,38,19,0,
+        154,151,1,0,0,0,154,152,1,0,0,0,154,153,1,0,0,0,155,31,1,0,0,0,156,
+        160,3,42,21,0,157,159,3,34,17,0,158,157,1,0,0,0,159,162,1,0,0,0,
+        160,158,1,0,0,0,160,161,1,0,0,0,161,33,1,0,0,0,162,160,1,0,0,0,163,
+        164,3,36,18,0,164,165,5,17,0,0,165,166,3,42,21,0,166,167,5,18,0,
+        0,167,168,3,28,14,0,168,35,1,0,0,0,169,170,7,0,0,0,170,37,1,0,0,
+        0,171,172,7,1,0,0,172,173,5,5,0,0,173,174,3,44,22,0,174,175,5,6,
+        0,0,175,39,1,0,0,0,176,177,5,29,0,0,177,41,1,0,0,0,178,179,5,36,
+        0,0,179,43,1,0,0,0,180,183,5,36,0,0,181,182,5,30,0,0,182,184,5,36,
+        0,0,183,181,1,0,0,0,183,184,1,0,0,0,184,45,1,0,0,0,185,186,7,2,0,
+        0,186,47,1,0,0,0,187,188,7,3,0,0,188,49,1,0,0,0,14,54,61,64,67,70,
+        91,99,120,125,132,140,154,160,183
     ]
 
 class PostgreSQLParser ( Parser ):
@@ -92,10 +88,8 @@ class PostgreSQLParser ( Parser ):
                      "'WHERE'", "'GROUP BY'", "'HAVING'", "'ORDER BY'", 
                      "','", "'='", "'JOIN'", "'ON'", "'INNER'", "'LEFT'", 
                      "'RIGHT'", "'FULL'", "'CROSS'", "'COUNT'", "'SUM'", 
-                     "'AVG'", "'MIN'", "'MAX'", "'ROW_NUMBER'", "'RANK'", 
-                     "'DENSE_RANK'", "'NTILE'", "'LEAD'", "'LAG'", "'OVER'", 
-                     "'PARTITION BY'", "'.'", "'!='", "'<'", "'<='", "'>'", 
-                     "'>='" ]
+                     "'AVG'", "'MIN'", "'MAX'", "';'", "'.'", "'!='", "'<'", 
+                     "'<='", "'>'", "'>='" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -106,9 +100,7 @@ class PostgreSQLParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "IDENTIFIER", 
-                      "STRING", "NUMBER", "WS" ]
+                      "IDENTIFIER", "STRING", "NUMBER", "WS" ]
 
     RULE_statement = 0
     RULE_selectStatement = 1
@@ -130,20 +122,18 @@ class PostgreSQLParser ( Parser ):
     RULE_joinClause = 17
     RULE_joinType = 18
     RULE_aggregateFunction = 19
-    RULE_windowFunction = 20
-    RULE_partitionByClause = 21
-    RULE_tableName = 22
-    RULE_columnName = 23
-    RULE_value = 24
-    RULE_comparisonOperator = 25
+    RULE_semicolon = 20
+    RULE_tableName = 21
+    RULE_columnName = 22
+    RULE_value = 23
+    RULE_comparisonOperator = 24
 
     ruleNames =  [ "statement", "selectStatement", "insertStatement", "updateStatement", 
                    "deleteStatement", "whereClause", "groupByClause", "havingClause", 
                    "orderByClause", "columnList", "column", "valueList", 
                    "assignmentList", "assignment", "condition", "expression", 
                    "tableList", "joinClause", "joinType", "aggregateFunction", 
-                   "windowFunction", "partitionByClause", "tableName", "columnName", 
-                   "value", "comparisonOperator" ]
+                   "semicolon", "tableName", "columnName", "value", "comparisonOperator" ]
 
     EOF = Token.EOF
     T__0=1
@@ -181,21 +171,14 @@ class PostgreSQLParser ( Parser ):
     T__32=33
     T__33=34
     T__34=35
-    T__35=36
-    T__36=37
-    T__37=38
-    T__38=39
-    T__39=40
-    T__40=41
-    T__41=42
-    IDENTIFIER=43
-    STRING=44
-    NUMBER=45
-    WS=46
+    IDENTIFIER=36
+    STRING=37
+    NUMBER=38
+    WS=39
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.13.0")
+        self.checkVersion("4.13.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -244,27 +227,27 @@ class PostgreSQLParser ( Parser ):
         localctx = PostgreSQLParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_statement)
         try:
-            self.state = 56
+            self.state = 54
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [1]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 52
+                self.state = 50
                 self.selectStatement()
                 pass
             elif token in [3]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 53
+                self.state = 51
                 self.insertStatement()
                 pass
             elif token in [8]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 54
+                self.state = 52
                 self.updateStatement()
                 pass
             elif token in [10]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 55
+                self.state = 53
                 self.deleteStatement()
                 pass
             else:
@@ -292,6 +275,10 @@ class PostgreSQLParser ( Parser ):
 
         def tableList(self):
             return self.getTypedRuleContext(PostgreSQLParser.TableListContext,0)
+
+
+        def semicolon(self):
+            return self.getTypedRuleContext(PostgreSQLParser.SemicolonContext,0)
 
 
         def whereClause(self):
@@ -331,46 +318,48 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 58
+            self.state = 56
             self.match(PostgreSQLParser.T__0)
-            self.state = 59
+            self.state = 57
             self.columnList()
-            self.state = 60
+            self.state = 58
             self.match(PostgreSQLParser.T__1)
-            self.state = 61
+            self.state = 59
             self.tableList()
-            self.state = 63
+            self.state = 61
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==11:
-                self.state = 62
+                self.state = 60
                 self.whereClause()
 
 
-            self.state = 66
+            self.state = 64
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==12:
-                self.state = 65
+                self.state = 63
                 self.groupByClause()
 
 
-            self.state = 69
+            self.state = 67
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==13:
-                self.state = 68
+                self.state = 66
                 self.havingClause()
 
 
-            self.state = 72
+            self.state = 70
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==14:
-                self.state = 71
+                self.state = 69
                 self.orderByClause()
 
 
+            self.state = 72
+            self.semicolon()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -397,6 +386,10 @@ class PostgreSQLParser ( Parser ):
 
         def valueList(self):
             return self.getTypedRuleContext(PostgreSQLParser.ValueListContext,0)
+
+
+        def semicolon(self):
+            return self.getTypedRuleContext(PostgreSQLParser.SemicolonContext,0)
 
 
         def getRuleIndex(self):
@@ -439,6 +432,8 @@ class PostgreSQLParser ( Parser ):
             self.valueList()
             self.state = 83
             self.match(PostgreSQLParser.T__5)
+            self.state = 84
+            self.semicolon()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -461,6 +456,10 @@ class PostgreSQLParser ( Parser ):
 
         def assignmentList(self):
             return self.getTypedRuleContext(PostgreSQLParser.AssignmentListContext,0)
+
+
+        def semicolon(self):
+            return self.getTypedRuleContext(PostgreSQLParser.SemicolonContext,0)
 
 
         def whereClause(self):
@@ -488,22 +487,24 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 85
-            self.match(PostgreSQLParser.T__7)
             self.state = 86
-            self.tableName()
+            self.match(PostgreSQLParser.T__7)
             self.state = 87
-            self.match(PostgreSQLParser.T__8)
+            self.tableName()
             self.state = 88
+            self.match(PostgreSQLParser.T__8)
+            self.state = 89
             self.assignmentList()
-            self.state = 90
+            self.state = 91
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==11:
-                self.state = 89
+                self.state = 90
                 self.whereClause()
 
 
+            self.state = 93
+            self.semicolon()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -522,6 +523,10 @@ class PostgreSQLParser ( Parser ):
 
         def tableName(self):
             return self.getTypedRuleContext(PostgreSQLParser.TableNameContext,0)
+
+
+        def semicolon(self):
+            return self.getTypedRuleContext(PostgreSQLParser.SemicolonContext,0)
 
 
         def whereClause(self):
@@ -549,20 +554,22 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 92
+            self.state = 95
             self.match(PostgreSQLParser.T__9)
-            self.state = 93
-            self.match(PostgreSQLParser.T__1)
-            self.state = 94
-            self.tableName()
             self.state = 96
+            self.match(PostgreSQLParser.T__1)
+            self.state = 97
+            self.tableName()
+            self.state = 99
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==11:
-                self.state = 95
+                self.state = 98
                 self.whereClause()
 
 
+            self.state = 101
+            self.semicolon()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -603,9 +610,9 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_whereClause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 98
+            self.state = 103
             self.match(PostgreSQLParser.T__10)
-            self.state = 99
+            self.state = 104
             self.condition()
         except RecognitionException as re:
             localctx.exception = re
@@ -647,9 +654,9 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_groupByClause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 101
+            self.state = 106
             self.match(PostgreSQLParser.T__11)
-            self.state = 102
+            self.state = 107
             self.columnList()
         except RecognitionException as re:
             localctx.exception = re
@@ -691,9 +698,9 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_havingClause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 104
+            self.state = 109
             self.match(PostgreSQLParser.T__12)
-            self.state = 105
+            self.state = 110
             self.condition()
         except RecognitionException as re:
             localctx.exception = re
@@ -735,9 +742,9 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_orderByClause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 107
+            self.state = 112
             self.match(PostgreSQLParser.T__13)
-            self.state = 108
+            self.state = 113
             self.columnList()
         except RecognitionException as re:
             localctx.exception = re
@@ -783,17 +790,17 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 110
-            self.column()
             self.state = 115
+            self.column()
+            self.state = 120
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==15:
-                self.state = 111
+                self.state = 116
                 self.match(PostgreSQLParser.T__14)
-                self.state = 112
-                self.column()
                 self.state = 117
+                self.column()
+                self.state = 122
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -821,10 +828,6 @@ class PostgreSQLParser ( Parser ):
             return self.getTypedRuleContext(PostgreSQLParser.AggregateFunctionContext,0)
 
 
-        def windowFunction(self):
-            return self.getTypedRuleContext(PostgreSQLParser.WindowFunctionContext,0)
-
-
         def getRuleIndex(self):
             return PostgreSQLParser.RULE_column
 
@@ -844,23 +847,18 @@ class PostgreSQLParser ( Parser ):
         localctx = PostgreSQLParser.ColumnContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_column)
         try:
-            self.state = 121
+            self.state = 125
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [43]:
+            if token in [36]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 118
+                self.state = 123
                 self.columnName()
                 pass
             elif token in [24, 25, 26, 27, 28]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 119
+                self.state = 124
                 self.aggregateFunction()
-                pass
-            elif token in [29, 30, 31, 32, 33, 34]:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 120
-                self.windowFunction()
                 pass
             else:
                 raise NoViableAltException(self)
@@ -909,17 +907,17 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 123
+            self.state = 127
             self.value()
-            self.state = 128
+            self.state = 132
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==15:
-                self.state = 124
+                self.state = 128
                 self.match(PostgreSQLParser.T__14)
-                self.state = 125
+                self.state = 129
                 self.value()
-                self.state = 130
+                self.state = 134
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -967,17 +965,17 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 131
+            self.state = 135
             self.assignment()
-            self.state = 136
+            self.state = 140
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==15:
-                self.state = 132
+                self.state = 136
                 self.match(PostgreSQLParser.T__14)
-                self.state = 133
+                self.state = 137
                 self.assignment()
-                self.state = 138
+                self.state = 142
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1025,11 +1023,11 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 26, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 139
+            self.state = 143
             self.columnName()
-            self.state = 140
+            self.state = 144
             self.match(PostgreSQLParser.T__15)
-            self.state = 141
+            self.state = 145
             self.value()
         except RecognitionException as re:
             localctx.exception = re
@@ -1078,11 +1076,11 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 28, self.RULE_condition)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 143
+            self.state = 147
             self.expression()
-            self.state = 144
+            self.state = 148
             self.comparisonOperator()
-            self.state = 145
+            self.state = 149
             self.expression()
         except RecognitionException as re:
             localctx.exception = re
@@ -1131,22 +1129,22 @@ class PostgreSQLParser ( Parser ):
         localctx = PostgreSQLParser.ExpressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 30, self.RULE_expression)
         try:
-            self.state = 150
+            self.state = 154
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [43]:
+            if token in [36]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 147
+                self.state = 151
                 self.columnName()
                 pass
-            elif token in [44, 45]:
+            elif token in [37, 38]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 148
+                self.state = 152
                 self.value()
                 pass
             elif token in [24, 25, 26, 27, 28]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 149
+                self.state = 153
                 self.aggregateFunction()
                 pass
             else:
@@ -1200,15 +1198,15 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 152
-            self.tableName()
             self.state = 156
+            self.tableName()
+            self.state = 160
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 16252928) != 0):
-                self.state = 153
+                self.state = 157
                 self.joinClause()
-                self.state = 158
+                self.state = 162
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1260,15 +1258,15 @@ class PostgreSQLParser ( Parser ):
         self.enterRule(localctx, 34, self.RULE_joinClause)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 159
-            self.joinType()
-            self.state = 160
-            self.match(PostgreSQLParser.T__16)
-            self.state = 161
-            self.tableName()
-            self.state = 162
-            self.match(PostgreSQLParser.T__17)
             self.state = 163
+            self.joinType()
+            self.state = 164
+            self.match(PostgreSQLParser.T__16)
+            self.state = 165
+            self.tableName()
+            self.state = 166
+            self.match(PostgreSQLParser.T__17)
+            self.state = 167
             self.condition()
         except RecognitionException as re:
             localctx.exception = re
@@ -1308,7 +1306,7 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 165
+            self.state = 169
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 16252928) != 0)):
                 self._errHandler.recoverInline(self)
@@ -1356,97 +1354,19 @@ class PostgreSQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 167
+            self.state = 171
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 520093696) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 168
-            self.match(PostgreSQLParser.T__4)
-            self.state = 169
-            self.columnName()
-            self.state = 170
-            self.match(PostgreSQLParser.T__5)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class WindowFunctionContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def partitionByClause(self):
-            return self.getTypedRuleContext(PostgreSQLParser.PartitionByClauseContext,0)
-
-
-        def orderByClause(self):
-            return self.getTypedRuleContext(PostgreSQLParser.OrderByClauseContext,0)
-
-
-        def getRuleIndex(self):
-            return PostgreSQLParser.RULE_windowFunction
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterWindowFunction" ):
-                listener.enterWindowFunction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitWindowFunction" ):
-                listener.exitWindowFunction(self)
-
-
-
-
-    def windowFunction(self):
-
-        localctx = PostgreSQLParser.WindowFunctionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_windowFunction)
-        self._la = 0 # Token type
-        try:
-            self.enterOuterAlt(localctx, 1)
             self.state = 172
-            _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 33822867456) != 0)):
-                self._errHandler.recoverInline(self)
-            else:
-                self._errHandler.reportMatch(self)
-                self.consume()
-            self.state = 173
             self.match(PostgreSQLParser.T__4)
+            self.state = 173
+            self.columnName()
             self.state = 174
             self.match(PostgreSQLParser.T__5)
-            self.state = 175
-            self.match(PostgreSQLParser.T__34)
-            self.state = 176
-            self.match(PostgreSQLParser.T__4)
-            self.state = 178
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==36:
-                self.state = 177
-                self.partitionByClause()
-
-
-            self.state = 181
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==14:
-                self.state = 180
-                self.orderByClause()
-
-
-            self.state = 183
-            self.match(PostgreSQLParser.T__5)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1456,41 +1376,36 @@ class PostgreSQLParser ( Parser ):
         return localctx
 
 
-    class PartitionByClauseContext(ParserRuleContext):
+    class SemicolonContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def columnList(self):
-            return self.getTypedRuleContext(PostgreSQLParser.ColumnListContext,0)
-
 
         def getRuleIndex(self):
-            return PostgreSQLParser.RULE_partitionByClause
+            return PostgreSQLParser.RULE_semicolon
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPartitionByClause" ):
-                listener.enterPartitionByClause(self)
+            if hasattr( listener, "enterSemicolon" ):
+                listener.enterSemicolon(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPartitionByClause" ):
-                listener.exitPartitionByClause(self)
+            if hasattr( listener, "exitSemicolon" ):
+                listener.exitSemicolon(self)
 
 
 
 
-    def partitionByClause(self):
+    def semicolon(self):
 
-        localctx = PostgreSQLParser.PartitionByClauseContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_partitionByClause)
+        localctx = PostgreSQLParser.SemicolonContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 40, self.RULE_semicolon)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 185
-            self.match(PostgreSQLParser.T__35)
-            self.state = 186
-            self.columnList()
+            self.state = 176
+            self.match(PostgreSQLParser.T__28)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1527,10 +1442,10 @@ class PostgreSQLParser ( Parser ):
     def tableName(self):
 
         localctx = PostgreSQLParser.TableNameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_tableName)
+        self.enterRule(localctx, 42, self.RULE_tableName)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 188
+            self.state = 178
             self.match(PostgreSQLParser.IDENTIFIER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1571,19 +1486,19 @@ class PostgreSQLParser ( Parser ):
     def columnName(self):
 
         localctx = PostgreSQLParser.ColumnNameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_columnName)
+        self.enterRule(localctx, 44, self.RULE_columnName)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 190
+            self.state = 180
             self.match(PostgreSQLParser.IDENTIFIER)
-            self.state = 193
+            self.state = 183
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==37:
-                self.state = 191
-                self.match(PostgreSQLParser.T__36)
-                self.state = 192
+            if _la==30:
+                self.state = 181
+                self.match(PostgreSQLParser.T__29)
+                self.state = 182
                 self.match(PostgreSQLParser.IDENTIFIER)
 
 
@@ -1626,13 +1541,13 @@ class PostgreSQLParser ( Parser ):
     def value(self):
 
         localctx = PostgreSQLParser.ValueContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_value)
+        self.enterRule(localctx, 46, self.RULE_value)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 195
+            self.state = 185
             _la = self._input.LA(1)
-            if not(_la==44 or _la==45):
+            if not(_la==37 or _la==38):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1671,13 +1586,13 @@ class PostgreSQLParser ( Parser ):
     def comparisonOperator(self):
 
         localctx = PostgreSQLParser.ComparisonOperatorContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_comparisonOperator)
+        self.enterRule(localctx, 48, self.RULE_comparisonOperator)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 197
+            self.state = 187
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 8521215180800) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 66572058624) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
