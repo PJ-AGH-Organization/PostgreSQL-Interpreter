@@ -1,6 +1,6 @@
 # Interpreter zapytań SQL dla PostgreSQL
 
-## Dane studenta(-ów)
+## Dane studentów
 
 - **Imię i nazwisko:** Jan Banasik, Patrick Bajorski  
 - **E-mail:** jbanasik@student.agh.edu.pl, pbajorski@student.agh.edu.pl 
