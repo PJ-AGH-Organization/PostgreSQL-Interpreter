@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (PostgreSQL-Interpreter)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12.3 WSL (Ubuntu): (/mnt/c/Users/jan_b/PycharmProjects/PostgreSQL-Interpreter/backend/venv/bin/python3.12)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
