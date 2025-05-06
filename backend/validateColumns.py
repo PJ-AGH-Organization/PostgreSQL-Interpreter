@@ -2,17 +2,19 @@ import sqlite3
 from antlr4 import *
 
 def find_column_names(tree, parser):
-    result = []
+    result = {}
 
     def traverse(node):
         if isinstance(node, ParserRuleContext):
             rule_name = parser.ruleNames[node.getRuleIndex()]
             if rule_name == "columnName":
-                result.append(node.getText())
+                splitted = node.getText().split('.')
+                result[splitted[-1]] = splitted[0] if len(splitted) == 2 else None
         for i in range(node.getChildCount()):
             traverse(node.getChild(i))
 
     traverse(tree)
+    print(result)
     return result
 
 def validateColumnNames(tree, parser, used_tables):
@@ -31,11 +33,17 @@ def validateColumnNames(tree, parser, used_tables):
                 table_to_columns[table] = []
 
     column_status = {}
-    for col in column_names:
+    for col, alias in column_names.items():
         col_lower = col.lower()
-        found_in = [table for table, cols in table_to_columns.items() if col_lower in cols]
-        column_status[col] = found_in
+        if alias is None:
+            found_in = [table for table, cols in table_to_columns.items() if col_lower in cols]
+            column_status[col] = found_in
+        else:
+            for table, t_alias in used_tables.items():
+                if alias == t_alias and col in table_to_columns[table]:
+                    column_status[col] = table
 
+    print(f"{column_status=}")
     missing = [col for col, tables in column_status.items() if not tables]
 
     return {
@@ -43,5 +51,3 @@ def validateColumnNames(tree, parser, used_tables):
         "missing_columns": missing,
         "column_table_map": column_status
     }
-
-

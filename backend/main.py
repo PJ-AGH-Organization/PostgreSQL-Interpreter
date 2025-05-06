@@ -1,7 +1,6 @@
 import os
 import sqlite3
 import pandas as pd
-
 from antlr4 import *
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -99,14 +98,11 @@ def execute_sql_query(query: str):
 
 @app.post("/execute")
 def execute(query: Query):
-
-    prepare_database()
-
     tree, parser, success, errors = parse_sql(query.query)
 
-
     if not success:
-        return {"error": "Błąd składni zapytania SQL", "details": errors}
+        return {"error": "Błąd składni zapytania SQL",
+                "details": errors}
 
     foundErrorsInTableNames = validateTableNames(tree, parser)
     if not foundErrorsInTableNames['all_exist']:
@@ -122,21 +118,26 @@ def execute(query: Query):
 
 
 def execute_test(query: str):
-    prepare_database()
-
     tree, parser, success, errors = parse_sql(query)
 
-    if not success:
-        return {"error": "Błąd składni zapytania SQL", "details": errors}
+    print(format_tree(tree, parser))
 
-    foundErrorsInTableNames = validateTableNames(tree, parser)
-    if not foundErrorsInTableNames['all_exist']:
-        return {"error": "Nie ma takiej tabeli w bazie",
-                "Missing tables": foundErrorsInTableNames['missing_tables']}
-
-    foundErrorsInColumnsNames = validateColumnNames(tree, parser, foundErrorsInTableNames['used_tables'])
-    if not foundErrorsInColumnsNames["all_exist"]:
-        return {"error": "Nie ma takiej kolumny w bazie", "Missing columns": foundErrorsInColumnsNames['missing_columns']}
+    # if not success:
+    #     return {"error": "Błąd składni zapytania SQL", "details": errors}
+    #
+    # foundErrorsInTableNames = validateTableNames(tree, parser)
+    # if not foundErrorsInTableNames["all_exist"]:
+    #     return {"error": "Nie ma takiej tabeli w bazie",
+    #             "Missing tables": foundErrorsInTableNames['missing_tables']}
+    #
+    # foundErrorsInColumnsNames = validateColumnNames(tree, parser, foundErrorsInTableNames['used_tables'])
+    # if not foundErrorsInColumnsNames["all_exist"]:
+    #     return {"error": "Nie ma takiej kolumny w bazie", "Missing columns": foundErrorsInColumnsNames['missing_columns']}
     return execute_sql_query(query)
 
 
+if __name__ == "__main__":
+    print(execute_test("SELECT COUNT(*) FROM suppliers s JOIN customers c USING (city) WHERE b.chuj > 10;"))
+    print(execute_test("SELECT MAX(MAX(supplierid)) FROM suppliers;"))
+
+prepare_database()
