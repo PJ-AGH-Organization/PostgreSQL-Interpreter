@@ -58,9 +58,7 @@ class SQLInterpreter:
             return
 
         result_dict = {}
-
         tree, parser, success, errors = self.parse_sql(query.query)
-        print(self.format_tree(tree, parser))
 
         if not success:
             result_dict["query"] = {"error": "Błąd składni zapytania SQL", "details": errors}
@@ -73,6 +71,7 @@ class SQLInterpreter:
             key = f"query {counter + 1}"
             result_dict[key] = {}
             stmt = tree.statement(counter)
+            result_dict[key]["parse_tree"] = self.format_tree(stmt, parser)
             if parser.ruleNames[stmt.getChild(0).getRuleIndex()] == "createTableStatement":
                 self.execute_sql_query(curr_query)
                 continue

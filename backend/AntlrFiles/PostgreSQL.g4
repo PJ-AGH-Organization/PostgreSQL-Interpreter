@@ -187,6 +187,7 @@ tableAliasName
 
 columnAliasName
     : STRING
+    | IDENTIFIER
     ;
 
 columnName

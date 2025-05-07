@@ -5,7 +5,6 @@ const Terminal = ({ output }) => {
   const tableRefs = useRef([]);
   const tabsRef = useRef(null);
 
-  // Reset scroll positions when new output arrives
   useEffect(() => {
     if (tableRefs.current.length > 0) {
       tableRefs.current.forEach(ref => {
@@ -24,7 +23,6 @@ const Terminal = ({ output }) => {
   const renderOutput = () => {
     if (!output) return <div className="terminal-placeholder">Results will appear here...</div>;
 
-    // Get all query keys from the output
     const queryKeys = output ? Object.keys(output) : [];
 
     if (queryKeys.length === 0) {
@@ -49,61 +47,52 @@ const Terminal = ({ output }) => {
               </ul>
             </>
           )}
-          {currentResult['Missing tables'] && (
-            <>
-              <h4>Missing tables:</h4>
-              <ul>
-                {currentResult['Missing tables'].map((table, i) => (
-                  <li key={i}>{table}</li>
-                ))}
-              </ul>
-            </>
-          )}
-          {currentResult['Missing columns'] && (
-            <>
-              <h4>Missing columns:</h4>
-              <ul>
-                {currentResult['Missing columns'].map((col, i) => (
-                  <li key={i}>{col}</li>
-                ))}
-              </ul>
-            </>
-          )}
         </div>
       );
     }
 
-    if (currentResult.result && currentResult.result.length > 0) {
-      return (
-        <div className="table-container">
-          <div
-            className="result-table"
-            ref={el => tableRefs.current[activeTab] = el}
-          >
-            <table>
-              <thead>
-                <tr>
-                  {Object.keys(currentResult.result[0]).map((key) => (
-                    <th key={key}>{key}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {currentResult.result.map((row, i) => (
-                  <tr key={i}>
-                    {Object.values(row).map((val, j) => (
-                      <td key={j}>{String(val)}</td>
+    return (
+      <div className="result-container">
+        {currentResult.result && currentResult.result.length > 0 && (
+          <div className="table-container">
+            <div
+              className="result-table"
+              ref={el => tableRefs.current[activeTab] = el}
+            >
+              <table>
+                <thead>
+                  <tr>
+                    {Object.keys(currentResult.result[0]).map((key) => (
+                      <th key={key}>{key}</th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {currentResult.result.map((row, i) => (
+                    <tr key={i}>
+                      {Object.values(row).map((val, j) => (
+                        <td key={j}>{String(val)}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {currentResult.parse_tree && (
+        <div className="parse-tree-container">
+          <h3>Parse Tree:</h3>
+          <div className="parse-tree-scroll-container">
+            <pre className="parse-tree">
+              {currentResult.parse_tree}
+            </pre>
           </div>
         </div>
-      );
-    }
-
-    return <div>No data returned for {currentQueryKey}</div>;
+        )}
+      </div>
+    );
   };
 
   return (
