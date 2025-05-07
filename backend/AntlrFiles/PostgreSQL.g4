@@ -1,17 +1,17 @@
 grammar PostgreSQL;
 
 statements
-    : (statement SEMICOLON)+ EOF
+    : (statement)+ EOF
     ;
 
 statement
-    : selectStatement
-    | insertStatement
-    | updateStatement
-    | deleteStatement
-    | createTableStatement
-    | alterTableStatement
-    | dropTableStatement
+    : selectStatement SEMICOLON
+    | insertStatement SEMICOLON
+    | updateStatement SEMICOLON
+    | deleteStatement SEMICOLON
+    | createTableStatement SEMICOLON
+    | alterTableStatement SEMICOLON
+    | dropTableStatement SEMICOLON
     ;
 
 selectStatement
