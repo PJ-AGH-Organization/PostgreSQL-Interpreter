@@ -86,25 +86,6 @@ body {
   font-weight: bold;
 }
 
-.code-input {
-  flex: 1;
-  padding: 1rem;
-  font-family: monospace;
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  border: 1px solid #333;
-  resize: none;
-  outline: none;
-}
-
-.syntax-preview {
-  flex: 1;
-  overflow: auto;
-  border: 1px solid #333;
-  border-top: none;
-  max-height: 200px;
-}
-
 .terminal-content {
   flex: 1;
   background-color: #1e1e1e;
@@ -195,24 +176,29 @@ ul {
 .result-table::-webkit-scrollbar {
   width: 12px;
   height: 12px;
+  cursor: pointer;
 }
 
 .result-table::-webkit-scrollbar-track {
   background: #2a2a2a;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .result-table::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .result-table::-webkit-scrollbar-thumb:hover {
   background: #666;
+  cursor: pointer;
 }
 
 .result-table::-webkit-scrollbar-corner {
   background: #2a2a2a;
+  cursor: pointer;
 }
 
 /* Dla przeglądarek innych niż Chrome/Safari */
@@ -265,20 +251,24 @@ ul {
 /* Stylowanie paska przewijania dla kontenera zakładek */
 .query-tabs-container::-webkit-scrollbar {
   height: 8px;
+  cursor: pointer;
 }
 
 .query-tabs-container::-webkit-scrollbar-track {
   background: #2a2a2a;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .query-tabs-container::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .query-tabs-container::-webkit-scrollbar-thumb:hover {
   background: #666;
+  cursor: pointer;
 }
 
 .terminal-header {
@@ -307,4 +297,61 @@ ul {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.code-input {
+  flex: 1;
+  padding: 1rem;
+  font-family: monospace;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid #333;
+  resize: none;
+  outline: none;
+  overflow: auto;
+  white-space: pre;
+  margin-bottom: 10px;
+}
+
+.syntax-preview {
+  flex: none;
+  height: 300px;
+  overflow: auto;
+  border: 1px solid #333;
+  border-top: none;
+  background-color: #1e1e1e;
+}
+
+.syntax-highlighter-container {
+  min-width: 100%;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* Stylowanie pasków przewijania */
+.code-input::-webkit-scrollbar,
+.syntax-preview::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.code-input::-webkit-scrollbar-track,
+.syntax-preview::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.code-input::-webkit-scrollbar-thumb,
+.syntax-preview::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.code-input::-webkit-scrollbar-thumb:hover,
+.syntax-preview::-webkit-scrollbar-thumb:hover {
+  background: #666;
+  cursor: pointer;
 }

@@ -12,9 +12,32 @@ const Editor = ({ code, setCode }) => {
         placeholder="Enter your SQL query here..."
       />
       <div className="syntax-preview">
-        <SyntaxHighlighter language="sql" style={atomDark}>
-          {code}
-        </SyntaxHighlighter>
+        <div className="syntax-highlighter-container">
+          <SyntaxHighlighter
+            language="sql"
+            style={atomDark}
+            showLineNumbers={true}
+            wrapLines={false}
+            customStyle={{
+              margin: 0,
+              padding: '1rem',
+              background: '#1e1e1e',
+              height: '100%',
+              overflow: 'auto',
+              minWidth: '100%',
+              display: 'inline-block'
+            }}
+            codeTagProps={{
+              style: {
+                fontFamily: 'monospace',
+                whiteSpace: 'pre',
+                display: 'inline-block'
+              }
+            }}
+          >
+            {code}
+          </SyntaxHighlighter>
+        </div>
       </div>
     </div>
   )

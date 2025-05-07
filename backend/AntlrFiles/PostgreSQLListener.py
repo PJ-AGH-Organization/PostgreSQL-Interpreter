@@ -197,6 +197,15 @@ class PostgreSQLListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PostgreSQLParser#columnExpression.
+    def enterColumnExpression(self, ctx:PostgreSQLParser.ColumnExpressionContext):
+        pass
+
+    # Exit a parse tree produced by PostgreSQLParser#columnExpression.
+    def exitColumnExpression(self, ctx:PostgreSQLParser.ColumnExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by PostgreSQLParser#valueList.
     def enterValueList(self, ctx:PostgreSQLParser.ValueListContext):
         pass
@@ -224,21 +233,39 @@ class PostgreSQLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PostgreSQLParser#condition.
-    def enterCondition(self, ctx:PostgreSQLParser.ConditionContext):
+    # Enter a parse tree produced by PostgreSQLParser#standardCondition.
+    def enterStandardCondition(self, ctx:PostgreSQLParser.StandardConditionContext):
         pass
 
-    # Exit a parse tree produced by PostgreSQLParser#condition.
-    def exitCondition(self, ctx:PostgreSQLParser.ConditionContext):
+    # Exit a parse tree produced by PostgreSQLParser#standardCondition.
+    def exitStandardCondition(self, ctx:PostgreSQLParser.StandardConditionContext):
         pass
 
 
-    # Enter a parse tree produced by PostgreSQLParser#expression.
-    def enterExpression(self, ctx:PostgreSQLParser.ExpressionContext):
+    # Enter a parse tree produced by PostgreSQLParser#havingCondition.
+    def enterHavingCondition(self, ctx:PostgreSQLParser.HavingConditionContext):
         pass
 
-    # Exit a parse tree produced by PostgreSQLParser#expression.
-    def exitExpression(self, ctx:PostgreSQLParser.ExpressionContext):
+    # Exit a parse tree produced by PostgreSQLParser#havingCondition.
+    def exitHavingCondition(self, ctx:PostgreSQLParser.HavingConditionContext):
+        pass
+
+
+    # Enter a parse tree produced by PostgreSQLParser#whereExpression.
+    def enterWhereExpression(self, ctx:PostgreSQLParser.WhereExpressionContext):
+        pass
+
+    # Exit a parse tree produced by PostgreSQLParser#whereExpression.
+    def exitWhereExpression(self, ctx:PostgreSQLParser.WhereExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by PostgreSQLParser#havingExpression.
+    def enterHavingExpression(self, ctx:PostgreSQLParser.HavingExpressionContext):
+        pass
+
+    # Exit a parse tree produced by PostgreSQLParser#havingExpression.
+    def exitHavingExpression(self, ctx:PostgreSQLParser.HavingExpressionContext):
         pass
 
 
@@ -356,6 +383,15 @@ class PostgreSQLListener(ParseTreeListener):
 
     # Exit a parse tree produced by PostgreSQLParser#comparisonOperator.
     def exitComparisonOperator(self, ctx:PostgreSQLParser.ComparisonOperatorContext):
+        pass
+
+
+    # Enter a parse tree produced by PostgreSQLParser#mathOperator.
+    def enterMathOperator(self, ctx:PostgreSQLParser.MathOperatorContext):
+        pass
+
+    # Exit a parse tree produced by PostgreSQLParser#mathOperator.
+    def exitMathOperator(self, ctx:PostgreSQLParser.MathOperatorContext):
         pass
 
 

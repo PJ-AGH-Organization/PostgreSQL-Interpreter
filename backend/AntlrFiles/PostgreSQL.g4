@@ -84,7 +84,7 @@ dataType
     ;
 
 whereClause
-    : WHERE condition
+    : WHERE standardCondition
     ;
 
 groupByClause
@@ -92,7 +92,7 @@ groupByClause
     ;
 
 havingClause
-    : HAVING condition
+    : HAVING havingCondition
     ;
 
 limitClause
@@ -101,14 +101,17 @@ limitClause
 
 columnList
     : STAR
-    | column (',' (column | NUMBER))*
-    | NUMBER (',' (column | NUMBER))*
+    | columnExpression (',' columnExpression)*
     ;
 
 column
-    : (columnName
+    : columnName
     | aggregateFunction
-    | countFunction) (AS? columnAliasName)?
+    | countFunction
+    ;
+
+columnExpression
+    : (column | NUMBER) (mathOperator (column | NUMBER))* (AS? columnAliasName)?
     ;
 
 valueList
@@ -123,14 +126,24 @@ assignment
     : columnName '=' value
     ;
 
-condition
-    : expression comparisonOperator expression
+standardCondition
+    : whereExpression comparisonOperator whereExpression
     ;
 
-expression
+havingCondition
+    : havingExpression comparisonOperator havingExpression
+    ;
+
+whereExpression
+    : columnName
+    | value
+    ;
+
+havingExpression
     : columnName
     | value
     | aggregateFunction
+    | countFunction
     ;
 
 tableList
@@ -152,12 +165,12 @@ joinType
     ;
 
 joinCondition
-    : ON '(' condition ')'
+    : ON '(' standardCondition ')'
     | USING '(' columnName (',' columnName)* ')'
     ;
 
 aggregateFunction
-    : (SUM | AVG | MIN | MAX) '(' columnName ')'
+    : (SUM | AVG | MIN | MAX) '(' columnName (mathOperator columnName)* ')'
     ;
 
 countFunction
@@ -173,7 +186,7 @@ tableAliasName
     ;
 
 columnAliasName
-    : IDENTIFIER
+    : STRING
     ;
 
 columnName
@@ -195,6 +208,13 @@ comparisonOperator
     | '<='
     | '>'
     | '>='
+    ;
+
+mathOperator
+    : '+'
+    | '-'
+    | '*'
+    | '/'
     ;
 
 SEMICOLON
