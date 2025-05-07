@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 const Terminal = ({ output }) => {
   const [activeTab, setActiveTab] = useState(0);
   const tableRefs = useRef([]);
+  const tabsRef = useRef(null);
 
   // Reset scroll positions when new output arrives
   useEffect(() => {
@@ -15,6 +16,9 @@ const Terminal = ({ output }) => {
       });
     }
     setActiveTab(0);
+    if (tabsRef.current) {
+      tabsRef.current.scrollLeft = 0;
+    }
   }, [output]);
 
   const renderOutput = () => {
@@ -105,16 +109,18 @@ const Terminal = ({ output }) => {
   return (
     <div className="terminal-container">
       <div className="terminal-header">
-        <div className="query-tabs">
-          {output && Object.keys(output).map((queryKey, index) => (
-            <button
-              key={queryKey}
-              className={`query-tab ${activeTab === index ? 'active' : ''}`}
-              onClick={() => setActiveTab(index)}
-            >
-              {queryKey}
-            </button>
-          ))}
+        <div className="query-tabs-container">
+          <div className="query-tabs" ref={tabsRef}>
+            {output && Object.keys(output).map((queryKey, index) => (
+              <button
+                key={queryKey}
+                className={`query-tab ${activeTab === index ? 'active' : ''}`}
+                onClick={() => setActiveTab(index)}
+              >
+                {queryKey}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       <div className="terminal-content">

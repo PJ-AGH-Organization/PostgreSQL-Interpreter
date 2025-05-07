@@ -221,14 +221,24 @@ ul {
   scrollbar-color: #555 #2a2a2a;
 }
 
+/* Stylowanie kontenera zakładek */
+.query-tabs-container {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 5px; /* miejsce na scrollbar */
+}
+
 .query-tabs {
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
   background-color: #1a1a1a;
   border-radius: 4px 4px 0 0;
+  width: max-content; /* wymusza poziome przewijanie */
+  min-width: 100%; /* zapewnia, że kontener będzie miał pełną szerokość */
 }
 
+/* Stylowanie pojedynczej zakładki */
 .query-tab {
   padding: 0.5rem 1rem;
   background-color: #2a2a2a;
@@ -238,6 +248,8 @@ ul {
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.2s;
+  white-space: nowrap; /* zapobiega zawijaniu tekstu */
+  flex-shrink: 0; /* zapobiega zmniejszaniu zakładek */
 }
 
 .query-tab:hover {
@@ -248,6 +260,25 @@ ul {
   background-color: #4CAF50;
   color: white;
   font-weight: bold;
+}
+
+/* Stylowanie paska przewijania dla kontenera zakładek */
+.query-tabs-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.query-tabs-container::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.query-tabs-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.query-tabs-container::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 .terminal-header {
