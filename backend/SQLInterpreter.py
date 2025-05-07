@@ -56,15 +56,16 @@ class SQLInterpreter:
         if query.query == "":
             return
 
+        result_dict = {}
+
         tree, parser, success, errors = self.parse_sql(query.query)
 
         if not success:
-            return {"error": "Błąd składni zapytania SQL",
-                    "details": errors}
+            result_dict["query"] = {"error": "Błąd składni zapytania SQL", "details": errors}
+            return result_dict
 
         queries = query.query.split(";")
         queries = queries[:-1]
-        result_dict = {}
 
         for counter, curr_query in enumerate(queries):
             key = f"query {counter + 1}"
@@ -99,6 +100,59 @@ class SQLInterpreter:
 
         return result_dict
 
+#     def execute_test(self, query):
+#         if query == "":
+#             return
+#
+#         result_dict = {}
+#
+#         tree, parser, success, errors = self.parse_sql(query)
+#         print(self.format_tree(tree, parser))
+#
+#         if not success:
+#             result_dict["query"] = {"error": "Błąd składni zapytania SQL", "details": errors}
+#             return result_dict
+#
+#         queries = query.split(";")
+#         queries = queries[:-1]
+#
+#         for counter, curr_query in enumerate(queries):
+#             key = f"query {counter + 1}"
+#             result_dict[key] = {}
+#             stmt = tree.statement(counter)
+#             if parser.ruleNames[stmt.getChild(0).getRuleIndex()] == "createTableStatement":
+#                 self.execute_sql_query(curr_query)
+#                 continue
+#
+#             if (parser.ruleNames[stmt.getChild(0).getRuleIndex()] == "alterTableStatement" and
+#                     stmt.getChild(0).getChild(3).getChild(0).getText() == "ADD"):
+#                 self.execute_sql_query(curr_query)
+#                 continue
+#
+#             tables_validation_result = StructureValidator.validate_table_names(stmt, parser)
+#             if tables_validation_result["error"] is not None:
+#                 result_dict[key]["error"] = tables_validation_result["error"]
+#                 return result_dict
+#
+#             columns_validation_result = StructureValidator.validate_column_names(stmt, parser,
+#                                                                                  tables_validation_result[
+#                                                                                      'used_tables'])
+#             if columns_validation_result["error"] is not None:
+#                 result_dict[key]["error"] = columns_validation_result["error"]
+#                 return result_dict
+#
+#             res, checker = self.execute_sql_query(curr_query)
+#             if checker:
+#                 result_dict[key]["result"] = res
+#             else:
+#                 result_dict[key]["error"] = res
+#
+#         return result_dict
+#
+# if __name__ == "__main__":
+#     sql = SQLInterpreter()
+#     query = Query(query="SELECT * WHERE supplier;")
+#     print(sql.execute(query))
 
 app = FastAPI(lifespan=prepare_database)
 app.include_router(router)
