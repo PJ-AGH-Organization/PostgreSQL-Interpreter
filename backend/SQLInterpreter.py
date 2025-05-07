@@ -17,7 +17,7 @@ router = APIRouter()
 
 @cbv(router)
 class SQLInterpreter:
-    # Aktualnie obecne tylko w celach testowych - potem się wyjebie, bo jest to używane w DatabaseInitializer
+    #Aktualnie obecne tylko w celach testowych - potem się wyjebie, bo jest to używane w DatabaseInitializer
     # def prepare_database(self):
     #     names = [
     #         "categories.csv", "customers.csv", "employee_territories.csv",
@@ -66,31 +66,51 @@ class SQLInterpreter:
             cursor.execute(query)
             rows = cursor.fetchall()
             columns = [desc[0] for desc in cursor.description] if cursor.description else []
-            return {"result": [dict(zip(columns, row)) for row in rows]}
+            return [dict(zip(columns, row)) for row in rows], True
         except Exception as e:
-            return {"error": str(e)}
+            return str(e), False
         finally:
             conn.commit()
             conn.close()
 
     @router.post("/execute")
     def execute(self, query: Query):
+        if query.query == "":
+            return
+
         tree, parser, success, errors = self.parse_sql(query.query)
 
         if not success:
             return {"error": "Błąd składni zapytania SQL",
                     "details": errors}
 
-        tables_validation_result = StructureValidator.validate_table_names(tree, parser)
-        if tables_validation_result["error"] is not None:
-            return {"error": tables_validation_result["error"]}
+        queries = query.query.split(";")
+        queries = queries[:-1]
+        result_dict = {}
 
-        columns_validation_result = StructureValidator.validate_column_names(tree, parser,
-                                                                             tables_validation_result['used_tables'])
-        if columns_validation_result["error"] is not None:
-            return {"error": columns_validation_result["error"]}
+        for counter, curr_query in enumerate(queries):
+            key = f"query {counter + 1}"
+            result_dict[key] = {}
 
-        return self.execute_sql_query(query.query)
+            tables_validation_result = StructureValidator.validate_table_names(tree.statement(counter), parser)
+            if tables_validation_result["error"] is not None:
+                result_dict[key]["error"] = tables_validation_result["error"]
+                return result_dict
+
+            columns_validation_result = StructureValidator.validate_column_names(tree.statement(counter), parser,
+                                                                                 tables_validation_result[
+                                                                                     'used_tables'])
+            if columns_validation_result["error"] is not None:
+                result_dict[key]["error"] = columns_validation_result["error"]
+                return result_dict
+
+            res, checker = self.execute_sql_query(curr_query)
+            if checker:
+                result_dict[key]["result"] = res
+            else:
+                result_dict[key]["error"] = res
+
+        return result_dict
 
     # def execute_test(self, query: str):
     #     tree, parser, success, errors = self.parse_sql(query)
@@ -100,22 +120,38 @@ class SQLInterpreter:
     #     if not success:
     #         return {"error": "Błąd składni zapytania SQL", "details": errors}
     #
-    #     tables_validation_result = StructureValidator.validate_table_names(tree, parser)
-    #     if tables_validation_result["error"] is not None:
-    #         return {"error": tables_validation_result["error"]}
+    #     queries = query.split(";")
+    #     queries = queries[:-1]
+    #     result_dict = {}
     #
-    #     columns_validation_result = StructureValidator.validate_column_names(tree, parser, tables_validation_result['used_tables'])
-    #     if columns_validation_result["error"] is not None:
-    #         return {"error": columns_validation_result["error"]}
+    #     for counter, curr_query in enumerate(queries):
+    #         key = f"query {counter+1}"
+    #         result_dict[key] = {}
     #
-    #     return self.execute_sql_query(query)
+    #         tables_validation_result = StructureValidator.validate_table_names(tree.statement(counter), parser)
+    #         if tables_validation_result["error"] is not None:
+    #             result_dict[key]["error"] = tables_validation_result["error"]
+    #             return result_dict
+    #
+    #         columns_validation_result = StructureValidator.validate_column_names(tree.statement(counter), parser, tables_validation_result['used_tables'])
+    #         if columns_validation_result["error"] is not None:
+    #             result_dict[key]["error"] = columns_validation_result["error"]
+    #             return result_dict
+    #
+    #         res, checker = self.execute_sql_query(curr_query)
+    #         if checker:
+    #             result_dict[key]["result"] = res
+    #         else:
+    #             result_dict[key]["error"] = res
+    #
+    #     return result_dict
 
 
 # if __name__ == "__main__":
 #     sql = SQLInterpreter()
 #     sql.prepare_database()
-#     print(sql.execute_test("SELECT COUNT(*) FROM suppliers s JOIN customers c USING (city) WHERE s.supplierid > 10;"))
-#     # print(sql.execute_test("SELECT MAX(MAX(supplierid)) FROM suppliers;"))
+#     print(sql.execute_test("SELECT COUNT(*) AS liczba FROM suppliers s JOIN customers c USING (city) WHERE s.supplierid > 10;"
+#                            "SELECT s.supplierid FROM suppliers s;"))
 
 
 app = FastAPI(lifespan=prepare_database)

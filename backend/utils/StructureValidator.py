@@ -22,6 +22,8 @@ class StructureValidator:
         elif not unique_aliases:
             error = f"Aliases for tables must be unique!"
 
+        # print(f"{table_names=}")
+
         return {
             "error": error,
             "used_tables": table_names
@@ -67,6 +69,9 @@ class StructureValidator:
                     else:
                         error += f"{col} | "
 
+        # print(f"{column_names=}")
+        # print(f"{column_status=}")
+
         return {
             "error": error,
             "column_table_map": column_status
@@ -82,15 +87,16 @@ class StructureValidator:
                 rule_name = parser.ruleNames[node.getRuleIndex()]
                 if rule_name == "tableName":
                     stack.append(node.getText())
-                elif rule_name == "aliasName":
+                elif rule_name == "tableAliasName":
                     result[stack.pop()] = node.getText()
             for i in range(node.getChildCount()):
                 traverse(node.getChild(i))
 
+        traverse(tree)
+
         while len(stack) > 0:
             result[stack.pop()] = None
 
-        traverse(tree)
         return result
 
     @staticmethod
@@ -101,8 +107,8 @@ class StructureValidator:
             if isinstance(node, ParserRuleContext):
                 rule_name = parser.ruleNames[node.getRuleIndex()]
                 if rule_name == "columnName":
-                    splitted = node.getText().split('.')
-                    result[splitted[-1]] = splitted[0] if len(splitted) == 2 else None
+                    splited = node.getText().split('.')
+                    result[splited[-1]] = splited[0] if len(splited) == 2 else None
             for i in range(node.getChildCount()):
                 traverse(node.getChild(i))
 

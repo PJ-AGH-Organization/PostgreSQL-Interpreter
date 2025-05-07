@@ -1,49 +1,65 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Terminal = ({ output }) => {
-  const tableRef = useRef(null);
+  const [activeTab, setActiveTab] = useState(0);
+  const tableRefs = useRef([]);
 
-  // Reset scroll position when new output arrives
+  // Reset scroll positions when new output arrives
   useEffect(() => {
-    if (tableRef.current) {
-      tableRef.current.scrollLeft = 0;
-      tableRef.current.scrollTop = 0;
+    if (tableRefs.current.length > 0) {
+      tableRefs.current.forEach(ref => {
+        if (ref) {
+          ref.scrollLeft = 0;
+          ref.scrollTop = 0;
+        }
+      });
     }
+    setActiveTab(0);
   }, [output]);
 
   const renderOutput = () => {
     if (!output) return <div className="terminal-placeholder">Results will appear here...</div>;
 
-    if (output.error) {
+    // Get all query keys from the output
+    const queryKeys = output ? Object.keys(output) : [];
+
+    if (queryKeys.length === 0) {
+      return <div className="terminal-placeholder">No results to display</div>;
+    }
+
+    const currentQueryKey = queryKeys[activeTab];
+    const currentResult = output[currentQueryKey];
+
+    if (currentResult.error) {
       return (
         <div className="error-output">
-          <h3>Error:</h3>
-          <pre>{output.error}</pre>
-          {output.details && (
+          <h3>Error in {currentQueryKey}:</h3>
+          <pre>{currentResult.error}</pre>
+          {currentResult.details && (
             <>
               <h4>Details:</h4>
               <ul>
-                {output.details.map((detail, i) => (
+                {currentResult.details.map((detail, i) => (
                   <li key={i}>{detail}</li>
                 ))}
               </ul>
             </>
           )}
-          {output['Missing tables'] && (
+          {currentResult['Missing tables'] && (
             <>
               <h4>Missing tables:</h4>
               <ul>
-                {output['Missing tables'].map((table, i) => (
+                {currentResult['Missing tables'].map((table, i) => (
                   <li key={i}>{table}</li>
                 ))}
               </ul>
             </>
           )}
-          {output['Missing columns'] && (
+          {currentResult['Missing columns'] && (
             <>
               <h4>Missing columns:</h4>
               <ul>
-                {output['Missing columns'].map((col, i) => (
+                {currentResult['Missing columns'].map((col, i) => (
                   <li key={i}>{col}</li>
                 ))}
               </ul>
@@ -53,23 +69,23 @@ const Terminal = ({ output }) => {
       );
     }
 
-    if (output.result && output.result.length > 0) {
+    if (currentResult.result && currentResult.result.length > 0) {
       return (
         <div className="table-container">
           <div
             className="result-table"
-            ref={tableRef}
+            ref={el => tableRefs.current[activeTab] = el}
           >
             <table>
               <thead>
                 <tr>
-                  {Object.keys(output.result[0]).map((key) => (
+                  {Object.keys(currentResult.result[0]).map((key) => (
                     <th key={key}>{key}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {output.result.map((row, i) => (
+                {currentResult.result.map((row, i) => (
                   <tr key={i}>
                     {Object.values(row).map((val, j) => (
                       <td key={j}>{String(val)}</td>
@@ -83,12 +99,24 @@ const Terminal = ({ output }) => {
       );
     }
 
-    return <div>No data returned</div>;
+    return <div>No data returned for {currentQueryKey}</div>;
   };
 
   return (
     <div className="terminal-container">
-      <div className="terminal-header">Terminal</div>
+      <div className="terminal-header">
+        <div className="query-tabs">
+          {output && Object.keys(output).map((queryKey, index) => (
+            <button
+              key={queryKey}
+              className={`query-tab ${activeTab === index ? 'active' : ''}`}
+              onClick={() => setActiveTab(index)}
+            >
+              {queryKey}
+            </button>
+          ))}
+        </div>
+      </div>
       <div className="terminal-content">
         {renderOutput()}
       </div>

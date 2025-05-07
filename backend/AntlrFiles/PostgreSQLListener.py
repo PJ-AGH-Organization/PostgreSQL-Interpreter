@@ -1,4 +1,4 @@
-# Generated from PostgreSQL.g4 by ANTLR 4.13.0
+# Generated from PostgreSQL.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .PostgreSQLParser import PostgreSQLParser
@@ -314,12 +314,21 @@ class PostgreSQLListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PostgreSQLParser#aliasName.
-    def enterAliasName(self, ctx:PostgreSQLParser.AliasNameContext):
+    # Enter a parse tree produced by PostgreSQLParser#tableAliasName.
+    def enterTableAliasName(self, ctx:PostgreSQLParser.TableAliasNameContext):
         pass
 
-    # Exit a parse tree produced by PostgreSQLParser#aliasName.
-    def exitAliasName(self, ctx:PostgreSQLParser.AliasNameContext):
+    # Exit a parse tree produced by PostgreSQLParser#tableAliasName.
+    def exitTableAliasName(self, ctx:PostgreSQLParser.TableAliasNameContext):
+        pass
+
+
+    # Enter a parse tree produced by PostgreSQLParser#columnAliasName.
+    def enterColumnAliasName(self, ctx:PostgreSQLParser.ColumnAliasNameContext):
+        pass
+
+    # Exit a parse tree produced by PostgreSQLParser#columnAliasName.
+    def exitColumnAliasName(self, ctx:PostgreSQLParser.ColumnAliasNameContext):
         pass
 
 

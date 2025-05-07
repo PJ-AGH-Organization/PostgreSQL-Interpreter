@@ -94,9 +94,9 @@ columnList
     ;
 
 column
-    : columnName (AS? aliasName)?
+    : (columnName
     | aggregateFunction
-    | countFunction
+    | countFunction) (AS? columnAliasName)?
     ;
 
 valueList: value (',' value)*;
@@ -107,7 +107,7 @@ expression: columnName | value | aggregateFunction;
 
 tableList: tableWithAlias (joinClause)*;
 
-tableWithAlias: tableName (AS? aliasName)?;
+tableWithAlias: tableName (AS? tableAliasName)?;
 
 joinClause: joinType? JOIN tableWithAlias joinCondition;
 
@@ -123,7 +123,8 @@ aggregateFunction: (SUM | AVG | MIN | MAX) '(' columnName ')';
 countFunction: COUNT '(' (columnName | STAR) ')';
 
 tableName: IDENTIFIER;
-aliasName: IDENTIFIER;
+tableAliasName: IDENTIFIER;
+columnAliasName: IDENTIFIER;
 columnName: IDENTIFIER ('.' IDENTIFIER)?;
 value: STRING | NUMBER | TRUE | FALSE | NULL;
 comparisonOperator: '=' | '!=' | '<' | '<=' | '>' | '>=';
