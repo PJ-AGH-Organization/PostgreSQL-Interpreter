@@ -20,7 +20,7 @@ Głównym celem projektu jest stworzenie interpretera zapytań SQL, wzorowanego 
 
 Projekt implementuje **interpreter**, wykorzystujący **silnik bazy danych SQLite** jako backend wykonawczy.
 
-**Planowany wynik działania programu:**
+**Wynik działania programu:**
 
 Program działa jako serwis webowy oparty o framework FastAPI. Udostępnia endpoint HTTP POST, który przyjmuje tekst zapytania(ń) SQL (jedno lub wiele, oddzielonych średnikami). W odpowiedzi, serwis zwraca obiekt w formacie JSON, zawierający:
 
@@ -31,7 +31,7 @@ Program działa jako serwis webowy oparty o framework FastAPI. Udostępnia endpo
 
 Dane bazodanowe, na których operuje interpreter, są inicjowane podczas startu aplikacji poprzez załadowanie danych z plików CSV z katalogu `resources/` do tymczasowej bazy danych SQLite w pliku `database/sample_database.db`.
 
-**Planowany język implementacji:**
+**Język implementacji:**
 
 Projekt jest implementowany w języku **Python 3**.
 
