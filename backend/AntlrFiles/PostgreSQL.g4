@@ -15,7 +15,7 @@ statement
     ;
 
 selectStatement
-    : SELECT columnList FROM tableList whereClause? groupByClause? havingClause? limitClause?
+    : SELECT columnList FROM tableList whereClause? groupByClause? havingClause? orderClause? limitClause?
     ;
 
 insertStatement
@@ -97,6 +97,19 @@ havingClause
 
 limitClause
     : LIMIT NUMBER
+    ;
+
+orderClause
+    : ORDER BY orderExpression (',' orderExpression)*
+    ;
+
+orderExpression
+    : (NUMBER | columnName) sortingOperator?
+    ;
+
+sortingOperator
+    : ASC
+    | DESC
     ;
 
 columnList
@@ -424,6 +437,14 @@ FULL
 
 CROSS
     : [cC][rR][oO][sS][sS]
+    ;
+
+ASC
+    : [aA][sS][cC]
+    ;
+
+DESC
+    : [dD][eE][sS][cC]
     ;
 
 AS
