@@ -1,6 +1,6 @@
 # PostgreSQL Interpreter
 
-## Dane studenta(-ów):
+## Dane studentów:
 
 *   Jan Banasik
 *   Patrick Bajorski
